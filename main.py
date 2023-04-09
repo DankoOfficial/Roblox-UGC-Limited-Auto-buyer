@@ -40,7 +40,8 @@ id = input(">> Assest ID: ")
 threads = input(">> Threads (Amount to buy/second): ")
 session = Session()
 session.cookies['.ROBLOSECURITY'] = cookie
-S.userID = session.get('https://www.roblox.com/my/settings/json').json()['UserId']
+S.userID = session.get('https://www.roblox.com/my/settings/json', cookies={".ROBLOSECURITY": cookie}).json()['UserId']
+print(S.userID)
 S.csrf = csrf()
 print(f">> [LOGS] - GOT CSRF: {S.csrf}")
 print(f">> [LOGS] - GETTING MORE INFO ON ITEM")
